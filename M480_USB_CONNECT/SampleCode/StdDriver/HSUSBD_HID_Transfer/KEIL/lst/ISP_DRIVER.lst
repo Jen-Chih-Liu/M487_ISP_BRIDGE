@@ -1,0 +1,257 @@
+L 1 "..\ISP_DRIVER.C"
+N#include "ISP_DRIVER.H"
+L 1 "..\ISP_DRIVER.H" 1
+N
+Ntypedef void * io_handle_t;
+Ntypedef unsigned int   uint32;
+Ntypedef unsigned char   uint8_t;
+Ntypedef signed int ErrNo;
+N#define NULL 0
+Ntypedef struct {
+N	ErrNo (*write)(io_handle_t handle,
+N	const void *buf,
+N	uint32 *len);
+N	ErrNo (*read)(io_handle_t handle,
+N		void *buf,
+N		uint32 *len);		
+N} devio_table_t;
+N
+Ntypedef struct {
+N	const	char        *name;										
+N	const	devio_table_t *handlers;                              
+N	ErrNo	(*init)(void *);										                                 
+N
+N}devtab_entry_t;
+N
+N#define CHAR_DEVIO_TABLE(_l,_write,_read,_package)    \
+N	const devio_table_t _l = { \
+N	_write, \
+N	_read, \
+N};
+X#define CHAR_DEVIO_TABLE(_l,_write,_read,_package)    	const devio_table_t _l = { 	_write, 	_read, };
+N
+N#define ENOERR           0     /* No error */
+N#define EPERM            1     /* Not permitted */
+N#define ENOENT           2     /* No such entity */
+N#define EPACKAGENO       3     /* Error package no*/
+N#define ECHECKSUM        4     /* Error checksum*/
+N#define EFILECHECKSUM    6       /* File checksum error*/
+N#define ETO              5     /* TIMEOUT error */
+N#define EI2CSLW              6     /* I2C SLW error */
+N#define EI2CSLR              7     /* I2C SLW error */
+N#define EINVAL           22    /* Invalid argument */
+N#define EDEVNOSUPP       202   /* Device does not support this operation */
+N#define CAN_NAME_STRING                            "CAN0"
+N#define I2C_NAME_STRING                            "I2C0"
+N#define UART_NAME_STRING                            "UART0"
+N#define SPI_NAME_STRING                            "SPI0"
+N#define RS485_NAME_STRING                            "RS4850"
+Nextern ErrNo  io_open(const char *dev_name, io_handle_t *io_handle);
+Nextern ErrNo io_write(io_handle_t handle, const void *buf, uint32 *len);
+Nextern ErrNo io_read(io_handle_t handle, void *buf, uint32 *len);
+Nextern int str_compare(const char *n1, const char *n2);
+L 2 "..\ISP_DRIVER.C" 2
+N
+Nextern ErrNo ISP_UART_WRITE(io_handle_t handle, const void *buf, uint32 *len);
+Nextern ErrNo ISP_UART_READ(io_handle_t handle, void *buf, uint32 *len);
+Nextern ErrNo UART_Config(void *priv);
+N
+NCHAR_DEVIO_TABLE(
+N	UART_Driver,
+N	ISP_UART_WRITE,
+N	ISP_UART_READ,
+N)
+Xconst devio_table_t UART_Driver = { ISP_UART_WRITE, ISP_UART_READ, };
+N
+Nextern ErrNo CAN_WRITE(io_handle_t handle, const void *buf, uint32 *len);
+Nextern ErrNo CAN_READ(io_handle_t handle, void *buf, uint32 *len);
+Nextern ErrNo CAN_Config(void *priv);
+N
+NCHAR_DEVIO_TABLE(
+N	CAN_Driver,
+N	CAN_WRITE,
+N	CAN_READ,
+N)
+Xconst devio_table_t CAN_Driver = { CAN_WRITE, CAN_READ, };
+N
+Nextern ErrNo SPI_WRITE(io_handle_t handle, const void *buf, uint32 *len);
+Nextern ErrNo SPI_READ(io_handle_t handle, void *buf, uint32 *len);
+Nextern ErrNo SPI_Config(void *priv);
+N
+NCHAR_DEVIO_TABLE(
+N	SPI_Driver,
+N	SPI_WRITE,
+N	SPI_READ,
+N)
+Xconst devio_table_t SPI_Driver = { SPI_WRITE, SPI_READ, };
+N
+Nextern ErrNo I2C_WRITE(io_handle_t handle, const void *buf, uint32 *len);
+Nextern ErrNo I2C_READ(io_handle_t handle, void *buf, uint32 *len);
+Nextern ErrNo I2C_Config(void *priv);
+N
+NCHAR_DEVIO_TABLE(
+N	I2C_Driver,
+N	I2C_WRITE,
+N	I2C_READ,
+N)
+Xconst devio_table_t I2C_Driver = { I2C_WRITE, I2C_READ, };
+N
+N
+Nextern ErrNo RS485_WRITE(io_handle_t handle, const void *buf, uint32 *len);
+Nextern ErrNo RS485_READ(io_handle_t handle, void *buf, uint32 *len);
+Nextern ErrNo RS485_Config(void *priv);
+Nextern ErrNo RS485_Package(io_handle_t handle, void *buf, uint32 *len);
+NCHAR_DEVIO_TABLE(
+N	RS485_Driver,
+N	RS485_WRITE,
+N	RS485_READ,
+N)
+Xconst devio_table_t RS485_Driver = { RS485_WRITE, RS485_READ, };
+N
+Ndevtab_entry_t DevTab[] = {
+N		 UART_NAME_STRING, &UART_Driver, UART_Config,
+X		 "UART0", &UART_Driver, UART_Config,
+N	   CAN_NAME_STRING, &CAN_Driver, CAN_Config,
+X	   "CAN0", &CAN_Driver, CAN_Config,
+N	   SPI_NAME_STRING, &SPI_Driver, SPI_Config,
+X	   "SPI0", &SPI_Driver, SPI_Config,
+N	   I2C_NAME_STRING, &I2C_Driver, I2C_Config,
+X	   "I2C0", &I2C_Driver, I2C_Config,
+N	   RS485_NAME_STRING,&RS485_Driver, RS485_Config,
+X	   "RS4850",&RS485_Driver, RS485_Config,
+N};
+N
+Nstatic int io_compare(const char *n1, const char *n2, const char **ptr)
+N{
+N	while (*n1 && *n2) {
+N		if (*n1++ != *n2++) {
+N			return 0;
+N		}
+N	}
+N	if (*n1) {
+N		// See if the devtab name is is a substring
+N		if (*(n2 - 1) == '/') {
+N			*ptr = n1;
+N			return 1;
+N		}
+N	}
+N	if (*n1 || *n2) {
+N		return 0;
+N	}
+N	*ptr = n1;
+N	return 1;
+N}
+N
+NErrNo  io_open(const char *dev_name, io_handle_t *io_handle)
+N{
+N		devtab_entry_t *p_devtab_entry;
+N		uint32 devtab_size, i;
+N		const char  *name_ptr;
+N		ErrNo re;
+N
+N		if (dev_name == 0 || io_handle == 0)
+N		{
+N			return -EINVAL;
+X			return -22;
+N		}
+N
+N		p_devtab_entry = (devtab_entry_t *)DevTab;
+N
+N		devtab_size = sizeof(DevTab) / sizeof(devtab_entry_t);
+N
+N		for (i = 0; i < devtab_size; i++)
+N		{
+N			if (io_compare(dev_name, p_devtab_entry->name, &name_ptr))
+N			{
+N				if (p_devtab_entry->init)
+N				{
+N					re = p_devtab_entry->init((void *)p_devtab_entry);
+N					if (re != ENOERR)
+X					if (re != 0)
+N						return re;
+N
+N					*io_handle = (io_handle_t *)p_devtab_entry; 
+N					return re;
+N				}
+N			}
+N			p_devtab_entry++;
+N		}
+N
+N		return -ENOENT;
+X		return -2;
+N}
+N
+NErrNo io_write(io_handle_t handle, const void *buf, uint32 *len)
+N{
+N	devtab_entry_t *t = (devtab_entry_t *)handle;
+N
+N	if (handle == NULL || buf == NULL || len == NULL)
+X	if (handle == 0 || buf == 0 || len == 0)
+N	{
+N		return -EINVAL;
+X		return -22;
+N	}
+N	// Validate request
+N	if (!t->handlers->write) {
+N		return -EDEVNOSUPP;
+X		return -202;
+N	}
+N	// Special check.  If length is zero, this just verifies that the
+N	// 'write' method exists for the given device.
+N	if (NULL != len && 0 == *len) {
+X	if (0 != len && 0 == *len) {
+N		return ENOERR;
+X		return 0;
+N	}
+N	return t->handlers->write(handle, buf, len);
+N}
+N
+N//
+N// 'read' data from a device.
+N//
+N
+NErrNo io_read(io_handle_t handle, void *buf, uint32 *len)
+N{
+N	devtab_entry_t *t = (devtab_entry_t *)handle;
+N
+N	if (handle == NULL || buf == NULL || len == NULL)
+X	if (handle == 0 || buf == 0 || len == 0)
+N	{
+N		return -EINVAL;
+X		return -22;
+N	}
+N
+N	// Validate request
+N	if (!t->handlers->read) {
+N		return -EDEVNOSUPP;
+X		return -202;
+N	}
+N	// Special check.  If length is zero, this just verifies that the
+N	// 'read' method exists for the given device.
+N	if (NULL != len && 0 == *len) {
+X	if (0 != len && 0 == *len) {
+N		return ENOERR;
+X		return 0;
+N	}
+N	return t->handlers->read(handle, buf, len);
+N}
+Nint str_compare(const char *n1, const char *n2)
+N{
+N	while (*n1 && *n2) {
+N		if (*n1++ != *n2++) {
+N			return 0;
+N		}
+N	}
+N	if (*n1) {
+N		// See if the devtab name is is a substring
+N		if (*(n2 - 1) == '/') {
+N			return 1;
+N		}
+N	}
+N	if (*n1 || *n2) {
+N		return 0;
+N	}
+N	return 1;
+N}
+N
+N

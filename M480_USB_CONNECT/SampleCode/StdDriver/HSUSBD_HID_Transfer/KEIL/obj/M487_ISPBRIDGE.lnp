@@ -1,0 +1,17 @@
+--cpu=Cortex-M4.fp
+".\obj\system_m480.o"
+".\obj\startup_m480.o"
+".\obj\isp_uart_bus.o"
+".\obj\isp_driver.o"
+".\obj\spi_flash_spim.o"
+".\obj\isp_can_bus.o"
+".\obj\isp_spi_bus.o"
+".\obj\isp_i2c_bus.o"
+".\obj\isp_rs485_bus.o"
+".\obj\isp_cmd.o"
+".\obj\main_offline.o"
+"..\NULIB.lib"
+--library_type=microlib --ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict
+--map --first='startup_M480.o(RESET)' --datacompressor=off --info=inline --entry Reset_Handler --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\lst\M487_ISPBRIDGE.map" -o .\obj\M487_ISPBRIDGE.axf

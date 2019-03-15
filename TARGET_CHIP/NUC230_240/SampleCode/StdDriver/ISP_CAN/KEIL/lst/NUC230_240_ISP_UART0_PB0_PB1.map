@@ -1,0 +1,587 @@
+Component: ARM Compiler 5.06 update 6 (build 750) Tool: armlink [4d35ed]
+
+==============================================================================
+
+Small function inlining results
+
+Inlined total of 0 calls.
+
+==============================================================================
+
+Section Cross References
+
+    system_nuc230_240.o(i.SystemCoreClockUpdate) refers to uidiv.o(.text) for __aeabi_uidivmod
+    system_nuc230_240.o(i.SystemCoreClockUpdate) refers to system_nuc230_240.o(.data) for .data
+    startup_nuc230_240.o(RESET) refers to startup_nuc230_240.o(STACK) for __initial_sp
+    startup_nuc230_240.o(RESET) refers to startup_nuc230_240.o(.text) for Reset_Handler
+    startup_nuc230_240.o(.text) refers to system_nuc230_240.o(i.SystemInit) for SystemInit
+    startup_nuc230_240.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    main.o(i.SYS_Init) refers to system_nuc230_240.o(.data) for CyclesPerUs
+    main.o(i.main) refers to main.o(i.SYS_Init) for SYS_Init
+    main.o(i.main) refers to isp_user.o(i.GetApromSize) for GetApromSize
+    main.o(i.main) refers to isp_user.o(i.GetDataFlashInfo) for GetDataFlashInfo
+    main.o(i.main) refers to clk.o(i.CLK_EnableModuleClock) for CLK_EnableModuleClock
+    main.o(i.main) refers to gpio.o(i.GPIO_SetMode) for GPIO_SetMode
+    main.o(i.main) refers to can.o(i.CAN_Open) for CAN_Open
+    main.o(i.main) refers to can.o(i.CAN_SetRxMsgObj) for CAN_SetRxMsgObj
+    main.o(i.main) refers to can.o(i.CAN_SetRxMsg) for CAN_SetRxMsg
+    main.o(i.main) refers to can_transfer.o(i.CAN_RecvData) for CAN_RecvData
+    main.o(i.main) refers to isp_user.o(i.ParseCmd) for ParseCmd
+    main.o(i.main) refers to can_transfer.o(i.CAN_SendData) for CAN_SendData
+    main.o(i.main) refers to isp_user.o(.data) for g_apromSize
+    main.o(i.main) refers to can_transfer.o(.bss) for rcv_buf
+    fmc_user.o(i.ReadData) refers to fmc_user.o(i.FMC_Read_User) for FMC_Read_User
+    fmc_user.o(i.WriteData) refers to fmc_user.o(i.FMC_Write_User) for FMC_Write_User
+    isp_user.o(i.EraseAP) refers to fmc_user.o(i.FMC_Erase_User) for FMC_Erase_User
+    isp_user.o(i.EraseAP) refers to isp_user.o(.data) for .data
+    isp_user.o(i.GetApromSize) refers to fmc_user.o(i.FMC_Read_User) for FMC_Read_User
+    isp_user.o(i.GetDataFlashInfo) refers to fmc_user.o(i.FMC_Read_User) for FMC_Read_User
+    isp_user.o(i.GetDataFlashInfo) refers to isp_user.o(.data) for .data
+    isp_user.o(i.ParseCmd) refers to fmc_user.o(i.ReadData) for ReadData
+    isp_user.o(i.ParseCmd) refers to isp_user.o(i.EraseAP) for EraseAP
+    isp_user.o(i.ParseCmd) refers to isp_user.o(i.UpdateConfig) for UpdateConfig
+    isp_user.o(i.ParseCmd) refers to fmc_user.o(i.FMC_Erase_User) for FMC_Erase_User
+    isp_user.o(i.ParseCmd) refers to fmc_user.o(i.WriteData) for WriteData
+    isp_user.o(i.ParseCmd) refers to memseta.o(.text) for __aeabi_memclr
+    isp_user.o(i.ParseCmd) refers to isp_user.o(i.Checksum) for Checksum
+    isp_user.o(i.ParseCmd) refers to isp_user.o(.bss) for .bss
+    isp_user.o(i.ParseCmd) refers to isp_user.o(.data) for .data
+    isp_user.o(i.UpdateConfig) refers to fmc_user.o(i.FMC_Erase_User) for FMC_Erase_User
+    isp_user.o(i.UpdateConfig) refers to fmc_user.o(i.FMC_Write_User) for FMC_Write_User
+    isp_user.o(i.UpdateConfig) refers to fmc_user.o(i.FMC_Read_User) for FMC_Read_User
+    can_transfer.o(i.CAN_RecvData) refers to can_transfer.o(i.CLK_SysTickDelay) for CLK_SysTickDelay
+    can_transfer.o(i.CAN_RecvData) refers to can.o(i.CAN_Receive) for CAN_Receive
+    can_transfer.o(i.CAN_RecvData) refers to memcpya.o(.text) for __aeabi_memcpy
+    can_transfer.o(i.CAN_RecvData) refers to can_transfer.o(.bss) for .bss
+    can_transfer.o(i.CAN_SendData) refers to memcpya.o(.text) for __aeabi_memcpy
+    can_transfer.o(i.CAN_SendData) refers to can.o(i.CAN_Transmit) for CAN_Transmit
+    can_transfer.o(i.CAN_SendData) refers to can_transfer.o(i.CLK_SysTickDelay) for CLK_SysTickDelay
+    can_transfer.o(i.CAN_SendData) refers to can.o(i.CAN_CLR_INT_PENDING_BIT) for CAN_CLR_INT_PENDING_BIT
+    can_transfer.o(i.CAN_SendData) refers to isp_user.o(.bss) for response_buff
+    can_transfer.o(i.CLK_SysTickDelay) refers to system_nuc230_240.o(.data) for CyclesPerUs
+    clk.o(i.CLK_DisableCKO) refers to clk.o(i.CLK_DisableModuleClock) for CLK_DisableModuleClock
+    clk.o(i.CLK_DisableModuleClock) refers to clk.o(.constdata) for .constdata
+    clk.o(i.CLK_EnableCKO) refers to clk.o(i.CLK_EnableModuleClock) for CLK_EnableModuleClock
+    clk.o(i.CLK_EnableCKO) refers to clk.o(i.CLK_SetModuleClock) for CLK_SetModuleClock
+    clk.o(i.CLK_EnableModuleClock) refers to clk.o(.constdata) for .constdata
+    clk.o(i.CLK_EnablePLL) refers to clk.o(i.CLK_WaitClockReady) for CLK_WaitClockReady
+    clk.o(i.CLK_EnablePLL) refers to uidiv.o(.text) for __aeabi_uidivmod
+    clk.o(i.CLK_GetCPUFreq) refers to system_nuc230_240.o(i.SystemCoreClockUpdate) for SystemCoreClockUpdate
+    clk.o(i.CLK_GetCPUFreq) refers to system_nuc230_240.o(.data) for SystemCoreClock
+    clk.o(i.CLK_GetHCLKFreq) refers to system_nuc230_240.o(i.SystemCoreClockUpdate) for SystemCoreClockUpdate
+    clk.o(i.CLK_GetHCLKFreq) refers to system_nuc230_240.o(.data) for SystemCoreClock
+    clk.o(i.CLK_GetPCLKFreq) refers to system_nuc230_240.o(i.SystemCoreClockUpdate) for SystemCoreClockUpdate
+    clk.o(i.CLK_GetPCLKFreq) refers to system_nuc230_240.o(.data) for SystemCoreClock
+    clk.o(i.CLK_SetCoreClock) refers to clk.o(i.CLK_EnablePLL) for CLK_EnablePLL
+    clk.o(i.CLK_SetCoreClock) refers to clk.o(i.CLK_SetHCLK) for CLK_SetHCLK
+    clk.o(i.CLK_SetCoreClock) refers to uidiv.o(.text) for __aeabi_uidivmod
+    clk.o(i.CLK_SetHCLK) refers to system_nuc230_240.o(i.SystemCoreClockUpdate) for SystemCoreClockUpdate
+    clk.o(i.CLK_SetModuleClock) refers to clk.o(.constdata) for .constdata
+    can.o(i.CAN_Close) refers to can.o(i.CAN_DisableInt) for CAN_DisableInt
+    can.o(i.CAN_DisableInt) refers to can.o(i.CAN_EnterInitMode) for CAN_EnterInitMode
+    can.o(i.CAN_DisableInt) refers to can.o(i.CAN_LeaveInitMode) for CAN_LeaveInitMode
+    can.o(i.CAN_EnableInt) refers to can.o(i.CAN_EnterInitMode) for CAN_EnterInitMode
+    can.o(i.CAN_EnableInt) refers to can.o(i.CAN_LeaveInitMode) for CAN_LeaveInitMode
+    can.o(i.CAN_GetCANBitRate) refers to uidiv.o(.text) for __aeabi_uidivmod
+    can.o(i.CAN_GetCANBitRate) refers to system_nuc230_240.o(.data) for SystemCoreClock
+    can.o(i.CAN_Open) refers to can.o(i.CAN_SetBaudRate) for CAN_SetBaudRate
+    can.o(i.CAN_Open) refers to can.o(i.CAN_EnterTestMode) for CAN_EnterTestMode
+    can.o(i.CAN_ReadMsgObj) refers to can.o(i.CAN_IsNewDataReceived) for CAN_IsNewDataReceived
+    can.o(i.CAN_Receive) refers to can.o(i.CAN_BasicReceiveMsg) for CAN_BasicReceiveMsg
+    can.o(i.CAN_Receive) refers to can.o(i.CAN_ReadMsgObj) for CAN_ReadMsgObj
+    can.o(i.CAN_SetBaudRate) refers to can.o(i.CAN_EnterInitMode) for CAN_EnterInitMode
+    can.o(i.CAN_SetBaudRate) refers to system_nuc230_240.o(i.SystemCoreClockUpdate) for SystemCoreClockUpdate
+    can.o(i.CAN_SetBaudRate) refers to uidiv.o(.text) for __aeabi_uidivmod
+    can.o(i.CAN_SetBaudRate) refers to can.o(i.CAN_LeaveInitMode) for CAN_LeaveInitMode
+    can.o(i.CAN_SetBaudRate) refers to can.o(i.CAN_GetCANBitRate) for CAN_GetCANBitRate
+    can.o(i.CAN_SetBaudRate) refers to system_nuc230_240.o(.data) for SystemCoreClock
+    can.o(i.CAN_SetMultiRxMsg) refers to can.o(i.CAN_SetRxMsgObj) for CAN_SetRxMsgObj
+    can.o(i.CAN_SetRxMsg) refers to can.o(i.CAN_SetRxMsgObj) for CAN_SetRxMsgObj
+    can.o(i.CAN_SetRxMsgObj) refers to can.o(i.GetFreeIF) for GetFreeIF
+    can.o(i.CAN_SetTxMsg) refers to can.o(i.GetFreeIF) for GetFreeIF
+    can.o(i.CAN_Transmit) refers to can.o(i.CAN_BasicSendMsg) for CAN_BasicSendMsg
+    can.o(i.CAN_Transmit) refers to can.o(i.CAN_SetTxMsg) for CAN_SetTxMsg
+    can.o(i.CAN_Transmit) refers to can.o(i.CAN_TriggerTxMsg) for CAN_TriggerTxMsg
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry8b.o(.ARM.Collect$$$$0000000A) for _main_cpp_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry9a.o(.ARM.Collect$$$$0000000B) for _main_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry5.o(.ARM.Collect$$$$00000004) for _main_scatterload
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry2.o(.ARM.Collect$$$$00000001) for _main_stk
+    entry2.o(.ARM.Collect$$$$00000001) refers to entry2.o(.ARM.Collect$$$$00002712) for __lit__00000000
+    entry2.o(.ARM.Collect$$$$00002712) refers to startup_nuc230_240.o(STACK) for __initial_sp
+    entry2.o(__vectab_stack_and_reset_area) refers to startup_nuc230_240.o(STACK) for __initial_sp
+    entry2.o(__vectab_stack_and_reset_area) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    entry5.o(.ARM.Collect$$$$00000004) refers to init.o(.text) for __scatterload
+    entry9a.o(.ARM.Collect$$$$0000000B) refers to main.o(i.main) for main
+    entry9b.o(.ARM.Collect$$$$0000000C) refers to main.o(i.main) for main
+    init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing system_nuc230_240.o(.rev16_text), (4 bytes).
+    Removing system_nuc230_240.o(.revsh_text), (4 bytes).
+    Removing startup_nuc230_240.o(HEAP), (0 bytes).
+    Removing main.o(.rev16_text), (4 bytes).
+    Removing main.o(.revsh_text), (4 bytes).
+    Removing fmc_user.o(.rev16_text), (4 bytes).
+    Removing fmc_user.o(.revsh_text), (4 bytes).
+    Removing isp_user.o(.rev16_text), (4 bytes).
+    Removing isp_user.o(.revsh_text), (4 bytes).
+    Removing can_transfer.o(.rev16_text), (4 bytes).
+    Removing can_transfer.o(.revsh_text), (4 bytes).
+    Removing clk.o(.rev16_text), (4 bytes).
+    Removing clk.o(.revsh_text), (4 bytes).
+    Removing clk.o(i.CLK_DisableCKO), (16 bytes).
+    Removing clk.o(i.CLK_DisableModuleClock), (48 bytes).
+    Removing clk.o(i.CLK_DisablePLL), (16 bytes).
+    Removing clk.o(i.CLK_DisableXtalRC), (16 bytes).
+    Removing clk.o(i.CLK_EnableCKO), (44 bytes).
+    Removing clk.o(i.CLK_EnablePLL), (408 bytes).
+    Removing clk.o(i.CLK_EnableXtalRC), (16 bytes).
+    Removing clk.o(i.CLK_GetCPUFreq), (16 bytes).
+    Removing clk.o(i.CLK_GetHCLKFreq), (16 bytes).
+    Removing clk.o(i.CLK_GetHXTFreq), (20 bytes).
+    Removing clk.o(i.CLK_GetLXTFreq), (24 bytes).
+    Removing clk.o(i.CLK_GetPCLKFreq), (16 bytes).
+    Removing clk.o(i.CLK_Idle), (32 bytes).
+    Removing clk.o(i.CLK_PowerDown), (36 bytes).
+    Removing clk.o(i.CLK_SetCoreClock), (208 bytes).
+    Removing clk.o(i.CLK_SetHCLK), (72 bytes).
+    Removing clk.o(i.CLK_SetModuleClock), (204 bytes).
+    Removing clk.o(i.CLK_SetSysTickClockSrc), (20 bytes).
+    Removing clk.o(i.CLK_WaitClockReady), (44 bytes).
+    Removing can.o(.rev16_text), (4 bytes).
+    Removing can.o(.revsh_text), (4 bytes).
+    Removing can.o(i.CAN_Close), (10 bytes).
+    Removing can.o(i.CAN_DisableInt), (40 bytes).
+    Removing can.o(i.CAN_EnableInt), (50 bytes).
+    Removing can.o(i.CAN_LeaveTestMode), (24 bytes).
+    Removing can.o(i.CAN_SetMultiRxMsg), (82 bytes).
+    Removing can.o(i.CAN_WaitMsg), (22 bytes).
+    Removing gpio.o(.rev16_text), (4 bytes).
+    Removing gpio.o(.revsh_text), (4 bytes).
+    Removing gpio.o(i.GPIO_DisableInt), (28 bytes).
+    Removing gpio.o(i.GPIO_EnableInt), (26 bytes).
+
+44 unused section(s) (total 1618 bytes) removed from the image.
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    RESET                                    0x00000000   Section      192  startup_nuc230_240.o(RESET)
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
+    ../clib/microlib/string/memset.c         0x00000000   Number         0  memseta.o ABSOLUTE
+    ..\..\..\..\Library\Device\Nuvoton\NUC230_240\Source\ARM\startup_NUC230_240.s 0x00000000   Number         0  startup_nuc230_240.o ABSOLUTE
+    ..\..\..\..\Library\Device\Nuvoton\NUC230_240\Source\system_NUC230_240.c 0x00000000   Number         0  system_nuc230_240.o ABSOLUTE
+    ..\..\..\..\Library\StdDriver\src\can.c  0x00000000   Number         0  can.o ABSOLUTE
+    ..\..\..\..\Library\StdDriver\src\clk.c  0x00000000   Number         0  clk.o ABSOLUTE
+    ..\..\..\..\Library\StdDriver\src\gpio.c 0x00000000   Number         0  gpio.o ABSOLUTE
+    ..\FMC_USER.c                            0x00000000   Number         0  fmc_user.o ABSOLUTE
+    ..\ISP_USER.c                            0x00000000   Number         0  isp_user.o ABSOLUTE
+    ..\\..\\..\\..\\Library\\Device\\Nuvoton\\NUC230_240\\Source\\system_NUC230_240.c 0x00000000   Number         0  system_nuc230_240.o ABSOLUTE
+    ..\\..\\..\\..\\Library\\StdDriver\\src\\can.c 0x00000000   Number         0  can.o ABSOLUTE
+    ..\\..\\..\\..\\Library\\StdDriver\\src\\clk.c 0x00000000   Number         0  clk.o ABSOLUTE
+    ..\\..\\..\\..\\Library\\StdDriver\\src\\gpio.c 0x00000000   Number         0  gpio.o ABSOLUTE
+    ..\\FMC_USER.c                           0x00000000   Number         0  fmc_user.o ABSOLUTE
+    ..\\ISP_USER.c                           0x00000000   Number         0  isp_user.o ABSOLUTE
+    ..\\can_transfer.c                       0x00000000   Number         0  can_transfer.o ABSOLUTE
+    ..\\main.c                               0x00000000   Number         0  main.o ABSOLUTE
+    ..\can_transfer.c                        0x00000000   Number         0  can_transfer.o ABSOLUTE
+    ..\main.c                                0x00000000   Number         0  main.o ABSOLUTE
+    handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
+    init.s                                   0x00000000   Number         0  init.o ABSOLUTE
+    .ARM.Collect$$$$00000000                 0x000000c0   Section        0  entry.o(.ARM.Collect$$$$00000000)
+    .ARM.Collect$$$$00000001                 0x000000c0   Section        4  entry2.o(.ARM.Collect$$$$00000001)
+    .ARM.Collect$$$$00000004                 0x000000c4   Section        4  entry5.o(.ARM.Collect$$$$00000004)
+    .ARM.Collect$$$$00000008                 0x000000c8   Section        0  entry7b.o(.ARM.Collect$$$$00000008)
+    .ARM.Collect$$$$0000000A                 0x000000c8   Section        0  entry8b.o(.ARM.Collect$$$$0000000A)
+    .ARM.Collect$$$$0000000B                 0x000000c8   Section        8  entry9a.o(.ARM.Collect$$$$0000000B)
+    .ARM.Collect$$$$0000000D                 0x000000d0   Section        0  entry10a.o(.ARM.Collect$$$$0000000D)
+    .ARM.Collect$$$$0000000F                 0x000000d0   Section        0  entry11a.o(.ARM.Collect$$$$0000000F)
+    .ARM.Collect$$$$00002712                 0x000000d0   Section        4  entry2.o(.ARM.Collect$$$$00002712)
+    __lit__00000000                          0x000000d0   Data           4  entry2.o(.ARM.Collect$$$$00002712)
+    .text                                    0x000000d4   Section       76  startup_nuc230_240.o(.text)
+    Default_Handler                          0x000000ff   Thumb Code     2  startup_nuc230_240.o(.text)
+    .text                                    0x00000120   Section        0  uidiv.o(.text)
+    .text                                    0x0000014c   Section        0  memcpya.o(.text)
+    .text                                    0x00000170   Section        0  memseta.o(.text)
+    .text                                    0x00000194   Section       36  init.o(.text)
+    i.CAN_BasicReceiveMsg                    0x000001b8   Section        0  can.o(i.CAN_BasicReceiveMsg)
+    i.CAN_BasicSendMsg                       0x00000238   Section        0  can.o(i.CAN_BasicSendMsg)
+    i.CAN_CLR_INT_PENDING_BIT                0x000002ec   Section        0  can.o(i.CAN_CLR_INT_PENDING_BIT)
+    i.CAN_EnterInitMode                      0x00000324   Section        0  can.o(i.CAN_EnterInitMode)
+    i.CAN_EnterTestMode                      0x00000336   Section        0  can.o(i.CAN_EnterTestMode)
+    i.CAN_GetCANBitRate                      0x00000344   Section        0  can.o(i.CAN_GetCANBitRate)
+    i.CAN_IsNewDataReceived                  0x00000378   Section        0  can.o(i.CAN_IsNewDataReceived)
+    i.CAN_LeaveInitMode                      0x00000390   Section        0  can.o(i.CAN_LeaveInitMode)
+    i.CAN_Open                               0x000003a0   Section        0  can.o(i.CAN_Open)
+    i.CAN_ReadMsgObj                         0x000003bc   Section        0  can.o(i.CAN_ReadMsgObj)
+    i.CAN_Receive                            0x00000448   Section        0  can.o(i.CAN_Receive)
+    i.CAN_RecvData                           0x0000046c   Section        0  can_transfer.o(i.CAN_RecvData)
+    i.CAN_SendData                           0x000004b0   Section        0  can_transfer.o(i.CAN_SendData)
+    i.CAN_SetBaudRate                        0x00000504   Section        0  can.o(i.CAN_SetBaudRate)
+    i.CAN_SetRxMsg                           0x0000059c   Section        0  can.o(i.CAN_SetRxMsg)
+    i.CAN_SetRxMsgObj                        0x000005d0   Section        0  can.o(i.CAN_SetRxMsgObj)
+    i.CAN_SetTxMsg                           0x00000640   Section        0  can.o(i.CAN_SetTxMsg)
+    i.CAN_Transmit                           0x000006f6   Section        0  can.o(i.CAN_Transmit)
+    i.CAN_TriggerTxMsg                       0x00000728   Section        0  can.o(i.CAN_TriggerTxMsg)
+    i.CLK_EnableModuleClock                  0x0000074c   Section        0  clk.o(i.CLK_EnableModuleClock)
+    i.CLK_SysTickDelay                       0x0000077c   Section        0  can_transfer.o(i.CLK_SysTickDelay)
+    CLK_SysTickDelay                         0x0000077d   Thumb Code    28  can_transfer.o(i.CLK_SysTickDelay)
+    i.Checksum                               0x000007a0   Section        0  isp_user.o(i.Checksum)
+    Checksum                                 0x000007a1   Thumb Code    24  isp_user.o(i.Checksum)
+    i.EraseAP                                0x000007b8   Section        0  isp_user.o(i.EraseAP)
+    i.FMC_Erase_User                         0x000007e0   Section        0  fmc_user.o(i.FMC_Erase_User)
+    i.FMC_Read_User                          0x00000808   Section        0  fmc_user.o(i.FMC_Read_User)
+    i.FMC_Write_User                         0x00000834   Section        0  fmc_user.o(i.FMC_Write_User)
+    i.GPIO_SetMode                           0x0000085c   Section        0  gpio.o(i.GPIO_SetMode)
+    i.GetApromSize                           0x00000884   Section        0  isp_user.o(i.GetApromSize)
+    i.GetDataFlashInfo                       0x000008a0   Section        0  isp_user.o(i.GetDataFlashInfo)
+    i.GetFreeIF                              0x0000090c   Section        0  can.o(i.GetFreeIF)
+    GetFreeIF                                0x0000090d   Thumb Code    26  can.o(i.GetFreeIF)
+    i.ParseCmd                               0x00000928   Section        0  isp_user.o(i.ParseCmd)
+    i.ReadData                               0x00000b74   Section        0  fmc_user.o(i.ReadData)
+    i.SYS_Init                               0x00000b90   Section        0  main.o(i.SYS_Init)
+    i.SystemCoreClockUpdate                  0x00000bf0   Section        0  system_nuc230_240.o(i.SystemCoreClockUpdate)
+    i.SystemInit                             0x00000c80   Section        0  system_nuc230_240.o(i.SystemInit)
+    i.UpdateConfig                           0x00000c84   Section        0  isp_user.o(i.UpdateConfig)
+    i.WriteData                              0x00000cd0   Section        0  fmc_user.o(i.WriteData)
+    i.__scatterload_copy                     0x00000cec   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00000cfa   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00000cfc   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.main                                   0x00000d0c   Section        0  main.o(i.main)
+    .constdata                               0x00000df0   Section       56  clk.o(.constdata)
+    .data                                    0x20000000   Section       44  system_nuc230_240.o(.data)
+    .data                                    0x2000002c   Section       44  isp_user.o(.data)
+    StartAddress                             0x2000002c   Data           4  isp_user.o(.data)
+    StartAddress_bak                         0x20000030   Data           4  isp_user.o(.data)
+    TotalLen                                 0x20000034   Data           4  isp_user.o(.data)
+    TotalLen_bak                             0x20000038   Data           4  isp_user.o(.data)
+    LastDataLen                              0x2000003c   Data           4  isp_user.o(.data)
+    g_packno                                 0x20000040   Data           4  isp_user.o(.data)
+    gcmd                                     0x20000044   Data           4  isp_user.o(.data)
+    .bss                                     0x20000058   Section      576  isp_user.o(.bss)
+    aprom_buf                                0x20000098   Data         512  isp_user.o(.bss)
+    .bss                                     0x20000298   Section       88  can_transfer.o(.bss)
+    STACK                                    0x200002f0   Section     1024  startup_nuc230_240.o(STACK)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv3M$S$PE$A:L22$X:L11$S22$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __ARM_use_no_argv                        0x00000000   Number         0  main.o ABSOLUTE
+    __Vectors                                0x00000000   Data           4  startup_nuc230_240.o(RESET)
+    __cpp_initialize__aeabi_                  - Undefined Weak Reference
+    __cxa_finalize                            - Undefined Weak Reference
+    __decompress                              - Undefined Weak Reference
+    _clock_init                               - Undefined Weak Reference
+    _microlib_exit                            - Undefined Weak Reference
+    __main                                   0x000000c1   Thumb Code     0  entry.o(.ARM.Collect$$$$00000000)
+    _main_stk                                0x000000c1   Thumb Code     0  entry2.o(.ARM.Collect$$$$00000001)
+    _main_scatterload                        0x000000c5   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    __main_after_scatterload                 0x000000c9   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    _main_clock                              0x000000c9   Thumb Code     0  entry7b.o(.ARM.Collect$$$$00000008)
+    _main_cpp_init                           0x000000c9   Thumb Code     0  entry8b.o(.ARM.Collect$$$$0000000A)
+    _main_init                               0x000000c9   Thumb Code     0  entry9a.o(.ARM.Collect$$$$0000000B)
+    __rt_final_cpp                           0x000000d1   Thumb Code     0  entry10a.o(.ARM.Collect$$$$0000000D)
+    __rt_final_exit                          0x000000d1   Thumb Code     0  entry11a.o(.ARM.Collect$$$$0000000F)
+    Reset_Handler                            0x000000d5   Thumb Code    32  startup_nuc230_240.o(.text)
+    NMI_Handler                              0x000000f5   Thumb Code     2  startup_nuc230_240.o(.text)
+    HardFault_Handler                        0x000000f7   Thumb Code     2  startup_nuc230_240.o(.text)
+    SVC_Handler                              0x000000f9   Thumb Code     2  startup_nuc230_240.o(.text)
+    PendSV_Handler                           0x000000fb   Thumb Code     2  startup_nuc230_240.o(.text)
+    SysTick_Handler                          0x000000fd   Thumb Code     2  startup_nuc230_240.o(.text)
+    ACMP_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    ADC_IRQHandler                           0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    BOD_IRQHandler                           0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    CAN0_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    CAN1_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    EINT0_IRQHandler                         0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    EINT1_IRQHandler                         0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    GPAB_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    GPCDEF_IRQHandler                        0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    I2C0_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    I2C1_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    I2S_IRQHandler                           0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    PDMA_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    PS2_IRQHandler                           0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    PWMA_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    PWMB_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    PWRWU_IRQHandler                         0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    RTC_IRQHandler                           0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    SC012_IRQHandler                         0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    SPI0_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    SPI1_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    SPI2_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    SPI3_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    TMR0_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    TMR1_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    TMR2_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    TMR3_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    UART02_IRQHandler                        0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    UART1_IRQHandler                         0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    USBD_IRQHandler                          0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    WDT_IRQHandler                           0x000000ff   Thumb Code     0  startup_nuc230_240.o(.text)
+    __aeabi_uidiv                            0x00000121   Thumb Code     0  uidiv.o(.text)
+    __aeabi_uidivmod                         0x00000121   Thumb Code    44  uidiv.o(.text)
+    __aeabi_memcpy                           0x0000014d   Thumb Code    36  memcpya.o(.text)
+    __aeabi_memcpy4                          0x0000014d   Thumb Code     0  memcpya.o(.text)
+    __aeabi_memcpy8                          0x0000014d   Thumb Code     0  memcpya.o(.text)
+    __aeabi_memset                           0x00000171   Thumb Code    14  memseta.o(.text)
+    __aeabi_memset4                          0x00000171   Thumb Code     0  memseta.o(.text)
+    __aeabi_memset8                          0x00000171   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr                           0x0000017f   Thumb Code     4  memseta.o(.text)
+    __aeabi_memclr4                          0x0000017f   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr8                          0x0000017f   Thumb Code     0  memseta.o(.text)
+    _memset$wrapper                          0x00000183   Thumb Code    18  memseta.o(.text)
+    __scatterload                            0x00000195   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x00000195   Thumb Code     0  init.o(.text)
+    CAN_BasicReceiveMsg                      0x000001b9   Thumb Code   126  can.o(i.CAN_BasicReceiveMsg)
+    CAN_BasicSendMsg                         0x00000239   Thumb Code   174  can.o(i.CAN_BasicSendMsg)
+    CAN_CLR_INT_PENDING_BIT                  0x000002ed   Thumb Code    56  can.o(i.CAN_CLR_INT_PENDING_BIT)
+    CAN_EnterInitMode                        0x00000325   Thumb Code    18  can.o(i.CAN_EnterInitMode)
+    CAN_EnterTestMode                        0x00000337   Thumb Code    12  can.o(i.CAN_EnterTestMode)
+    CAN_GetCANBitRate                        0x00000345   Thumb Code    46  can.o(i.CAN_GetCANBitRate)
+    CAN_IsNewDataReceived                    0x00000379   Thumb Code    24  can.o(i.CAN_IsNewDataReceived)
+    CAN_LeaveInitMode                        0x00000391   Thumb Code    16  can.o(i.CAN_LeaveInitMode)
+    CAN_Open                                 0x000003a1   Thumb Code    28  can.o(i.CAN_Open)
+    CAN_ReadMsgObj                           0x000003bd   Thumb Code   140  can.o(i.CAN_ReadMsgObj)
+    CAN_Receive                              0x00000449   Thumb Code    34  can.o(i.CAN_Receive)
+    CAN_RecvData                             0x0000046d   Thumb Code    62  can_transfer.o(i.CAN_RecvData)
+    CAN_SendData                             0x000004b1   Thumb Code    80  can_transfer.o(i.CAN_SendData)
+    CAN_SetBaudRate                          0x00000505   Thumb Code   146  can.o(i.CAN_SetBaudRate)
+    CAN_SetRxMsg                             0x0000059d   Thumb Code    52  can.o(i.CAN_SetRxMsg)
+    CAN_SetRxMsgObj                          0x000005d1   Thumb Code   112  can.o(i.CAN_SetRxMsgObj)
+    CAN_SetTxMsg                             0x00000641   Thumb Code   182  can.o(i.CAN_SetTxMsg)
+    CAN_Transmit                             0x000006f7   Thumb Code    50  can.o(i.CAN_Transmit)
+    CAN_TriggerTxMsg                         0x00000729   Thumb Code    36  can.o(i.CAN_TriggerTxMsg)
+    CLK_EnableModuleClock                    0x0000074d   Thumb Code    40  clk.o(i.CLK_EnableModuleClock)
+    EraseAP                                  0x000007b9   Thumb Code    36  isp_user.o(i.EraseAP)
+    FMC_Erase_User                           0x000007e1   Thumb Code    34  fmc_user.o(i.FMC_Erase_User)
+    FMC_Read_User                            0x00000809   Thumb Code    40  fmc_user.o(i.FMC_Read_User)
+    FMC_Write_User                           0x00000835   Thumb Code    36  fmc_user.o(i.FMC_Write_User)
+    GPIO_SetMode                             0x0000085d   Thumb Code    40  gpio.o(i.GPIO_SetMode)
+    GetApromSize                             0x00000885   Thumb Code    26  isp_user.o(i.GetApromSize)
+    GetDataFlashInfo                         0x000008a1   Thumb Code   100  isp_user.o(i.GetDataFlashInfo)
+    ParseCmd                                 0x00000929   Thumb Code   558  isp_user.o(i.ParseCmd)
+    ReadData                                 0x00000b75   Thumb Code    28  fmc_user.o(i.ReadData)
+    SYS_Init                                 0x00000b91   Thumb Code    84  main.o(i.SYS_Init)
+    SystemCoreClockUpdate                    0x00000bf1   Thumb Code   118  system_nuc230_240.o(i.SystemCoreClockUpdate)
+    SystemInit                               0x00000c81   Thumb Code     2  system_nuc230_240.o(i.SystemInit)
+    UpdateConfig                             0x00000c85   Thumb Code    68  isp_user.o(i.UpdateConfig)
+    WriteData                                0x00000cd1   Thumb Code    28  fmc_user.o(i.WriteData)
+    __scatterload_copy                       0x00000ced   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00000cfb   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00000cfd   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    main                                     0x00000d0d   Thumb Code   184  main.o(i.main)
+    Region$$Table$$Base                      0x00000e28   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00000e48   Number         0  anon$$obj.o(Region$$Table)
+    SystemCoreClock                          0x20000000   Data           4  system_nuc230_240.o(.data)
+    CyclesPerUs                              0x20000004   Data           4  system_nuc230_240.o(.data)
+    PllClock                                 0x20000008   Data           4  system_nuc230_240.o(.data)
+    gau32ClkSrcTbl                           0x2000000c   Data          32  system_nuc230_240.o(.data)
+    bUpdateApromCmd                          0x20000048   Data           4  isp_user.o(.data)
+    g_apromSize                              0x2000004c   Data           4  isp_user.o(.data)
+    g_dataFlashAddr                          0x20000050   Data           4  isp_user.o(.data)
+    g_dataFlashSize                          0x20000054   Data           4  isp_user.o(.data)
+    response_buff                            0x20000058   Data          64  isp_user.o(.bss)
+    rcv_buf                                  0x20000298   Data          64  can_transfer.o(.bss)
+    rrMsg                                    0x200002d8   Data          24  can_transfer.o(.bss)
+    __initial_sp                             0x200006f0   Data           0  startup_nuc230_240.o(STACK)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x000000d5
+
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00000ea0, Max: 0xffffffff, ABSOLUTE)
+
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00000e48, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000000   0x00000000   0x000000c0   Data   RO          123    RESET               startup_nuc230_240.o
+    0x000000c0   0x000000c0   0x00000000   Code   RO          703  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
+    0x000000c0   0x000000c0   0x00000004   Code   RO          712    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
+    0x000000c4   0x000000c4   0x00000004   Code   RO          715    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
+    0x000000c8   0x000000c8   0x00000000   Code   RO          717    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
+    0x000000c8   0x000000c8   0x00000000   Code   RO          719    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
+    0x000000c8   0x000000c8   0x00000008   Code   RO          720    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
+    0x000000d0   0x000000d0   0x00000000   Code   RO          722    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
+    0x000000d0   0x000000d0   0x00000000   Code   RO          724    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
+    0x000000d0   0x000000d0   0x00000004   Code   RO          713    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
+    0x000000d4   0x000000d4   0x0000004c   Code   RO          124  * .text               startup_nuc230_240.o
+    0x00000120   0x00000120   0x0000002c   Code   RO          704    .text               mc_p.l(uidiv.o)
+    0x0000014c   0x0000014c   0x00000024   Code   RO          706    .text               mc_p.l(memcpya.o)
+    0x00000170   0x00000170   0x00000024   Code   RO          708    .text               mc_p.l(memseta.o)
+    0x00000194   0x00000194   0x00000024   Code   RO          726    .text               mc_p.l(init.o)
+    0x000001b8   0x000001b8   0x0000007e   Code   RO          521    i.CAN_BasicReceiveMsg  can.o
+    0x00000236   0x00000236   0x00000002   PAD
+    0x00000238   0x00000238   0x000000b4   Code   RO          522    i.CAN_BasicSendMsg  can.o
+    0x000002ec   0x000002ec   0x00000038   Code   RO          523    i.CAN_CLR_INT_PENDING_BIT  can.o
+    0x00000324   0x00000324   0x00000012   Code   RO          527    i.CAN_EnterInitMode  can.o
+    0x00000336   0x00000336   0x0000000c   Code   RO          528    i.CAN_EnterTestMode  can.o
+    0x00000342   0x00000342   0x00000002   PAD
+    0x00000344   0x00000344   0x00000034   Code   RO          529    i.CAN_GetCANBitRate  can.o
+    0x00000378   0x00000378   0x00000018   Code   RO          530    i.CAN_IsNewDataReceived  can.o
+    0x00000390   0x00000390   0x00000010   Code   RO          531    i.CAN_LeaveInitMode  can.o
+    0x000003a0   0x000003a0   0x0000001c   Code   RO          533    i.CAN_Open          can.o
+    0x000003bc   0x000003bc   0x0000008c   Code   RO          534    i.CAN_ReadMsgObj    can.o
+    0x00000448   0x00000448   0x00000022   Code   RO          535    i.CAN_Receive       can.o
+    0x0000046a   0x0000046a   0x00000002   PAD
+    0x0000046c   0x0000046c   0x00000044   Code   RO          303    i.CAN_RecvData      can_transfer.o
+    0x000004b0   0x000004b0   0x00000054   Code   RO          304    i.CAN_SendData      can_transfer.o
+    0x00000504   0x00000504   0x00000098   Code   RO          536    i.CAN_SetBaudRate   can.o
+    0x0000059c   0x0000059c   0x00000034   Code   RO          538    i.CAN_SetRxMsg      can.o
+    0x000005d0   0x000005d0   0x00000070   Code   RO          539    i.CAN_SetRxMsgObj   can.o
+    0x00000640   0x00000640   0x000000b6   Code   RO          540    i.CAN_SetTxMsg      can.o
+    0x000006f6   0x000006f6   0x00000032   Code   RO          541    i.CAN_Transmit      can.o
+    0x00000728   0x00000728   0x00000024   Code   RO          542    i.CAN_TriggerTxMsg  can.o
+    0x0000074c   0x0000074c   0x00000030   Code   RO          391    i.CLK_EnableModuleClock  clk.o
+    0x0000077c   0x0000077c   0x00000024   Code   RO          305    i.CLK_SysTickDelay  can_transfer.o
+    0x000007a0   0x000007a0   0x00000018   Code   RO          243    i.Checksum          isp_user.o
+    0x000007b8   0x000007b8   0x00000028   Code   RO          244    i.EraseAP           isp_user.o
+    0x000007e0   0x000007e0   0x00000028   Code   RO          199    i.FMC_Erase_User    fmc_user.o
+    0x00000808   0x00000808   0x0000002c   Code   RO          200    i.FMC_Read_User     fmc_user.o
+    0x00000834   0x00000834   0x00000028   Code   RO          201    i.FMC_Write_User    fmc_user.o
+    0x0000085c   0x0000085c   0x00000028   Code   RO          675    i.GPIO_SetMode      gpio.o
+    0x00000884   0x00000884   0x0000001a   Code   RO          245    i.GetApromSize      isp_user.o
+    0x0000089e   0x0000089e   0x00000002   PAD
+    0x000008a0   0x000008a0   0x0000006c   Code   RO          246    i.GetDataFlashInfo  isp_user.o
+    0x0000090c   0x0000090c   0x0000001a   Code   RO          544    i.GetFreeIF         can.o
+    0x00000926   0x00000926   0x00000002   PAD
+    0x00000928   0x00000928   0x0000024c   Code   RO          247    i.ParseCmd          isp_user.o
+    0x00000b74   0x00000b74   0x0000001c   Code   RO          202    i.ReadData          fmc_user.o
+    0x00000b90   0x00000b90   0x00000060   Code   RO          130    i.SYS_Init          main.o
+    0x00000bf0   0x00000bf0   0x00000090   Code   RO            3    i.SystemCoreClockUpdate  system_nuc230_240.o
+    0x00000c80   0x00000c80   0x00000002   Code   RO            4    i.SystemInit        system_nuc230_240.o
+    0x00000c82   0x00000c82   0x00000002   PAD
+    0x00000c84   0x00000c84   0x0000004c   Code   RO          248    i.UpdateConfig      isp_user.o
+    0x00000cd0   0x00000cd0   0x0000001c   Code   RO          203    i.WriteData         fmc_user.o
+    0x00000cec   0x00000cec   0x0000000e   Code   RO          730    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x00000cfa   0x00000cfa   0x00000002   Code   RO          731    i.__scatterload_null  mc_p.l(handlers.o)
+    0x00000cfc   0x00000cfc   0x0000000e   Code   RO          732    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x00000d0a   0x00000d0a   0x00000002   PAD
+    0x00000d0c   0x00000d0c   0x000000e4   Code   RO          131    i.main              main.o
+    0x00000df0   0x00000df0   0x00000038   Data   RO          406    .constdata          clk.o
+    0x00000e28   0x00000e28   0x00000020   Data   RO          728    Region$$Table       anon$$obj.o
+
+
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00000e48, Size: 0x00000058, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000000   0x00000e48   0x0000002c   Data   RW            5    .data               system_nuc230_240.o
+    0x2000002c   0x00000e74   0x0000002c   Data   RW          250    .data               isp_user.o
+
+
+    Execution Region ER_ZI (Exec base: 0x20000058, Load base: 0x00000ea0, Size: 0x00000698, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000058        -       0x00000240   Zero   RW          249    .bss                isp_user.o
+    0x20000298        -       0x00000058   Zero   RW          306    .bss                can_transfer.o
+    0x200002f0        -       0x00000400   Zero   RW          121    STACK               startup_nuc230_240.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+      1296         18          0          0          0      14052   can.o
+       188         18          0          0         88     104378   can_transfer.o
+        48          8         56          0          0        620   clk.o
+       180         14          0          0          0       3241   fmc_user.o
+        40          0          0          0          0       1107   gpio.o
+       862         50          0         44        576       6394   isp_user.o
+       324         56          0          0          0     139646   main.o
+        76         32        192          0       1024        776   startup_nuc230_240.o
+       146         26          0         44          0     128595   system_nuc230_240.o
+
+    ----------------------------------------------------------------------
+      3172        222        280         88       1688     398809   Object Totals
+         0          0         32          0          0          0   (incl. Generated)
+        12          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         0          0          0          0          0          0   entry.o
+         0          0          0          0          0          0   entry10a.o
+         0          0          0          0          0          0   entry11a.o
+         8          4          0          0          0          0   entry2.o
+         4          0          0          0          0          0   entry5.o
+         0          0          0          0          0          0   entry7b.o
+         0          0          0          0          0          0   entry8b.o
+         8          4          0          0          0          0   entry9a.o
+        30          0          0          0          0          0   handlers.o
+        36          8          0          0          0         68   init.o
+        36          0          0          0          0         60   memcpya.o
+        36          0          0          0          0        100   memseta.o
+        44          0          0          0          0         72   uidiv.o
+
+    ----------------------------------------------------------------------
+       204         16          0          0          0        300   Library Totals
+         2          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+       202         16          0          0          0        300   mc_p.l
+
+    ----------------------------------------------------------------------
+       204         16          0          0          0        300   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+      3376        238        280         88       1688     397633   Grand Totals
+      3376        238        280         88       1688     397633   ELF Image Totals
+      3376        238        280         88          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                 3656 (   3.57kB)
+    Total RW  Size (RW Data + ZI Data)              1776 (   1.73kB)
+    Total ROM Size (Code + RO Data + RW Data)       3744 (   3.66kB)
+
+==============================================================================
+

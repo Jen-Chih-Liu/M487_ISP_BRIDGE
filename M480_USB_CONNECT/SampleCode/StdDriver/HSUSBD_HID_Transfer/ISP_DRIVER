@@ -1,0 +1,21 @@
+typedef struct {
+	uint32 (*write)(io_handle_t handle,
+	const void *buf,
+	uint32 *len);
+	uint32 (*read)(io_handle_t handle,
+		   void *buf,
+		   uint32 *len);	
+} devio_table_t;
+
+typedef struct {
+	const	char        *name;										
+	const	devio_table_t *handlers;                              
+	uint32	(*init)(void *);										                                 
+
+}devtab_entry_t;
+
+#define CHAR_DEVIO_TABLE(_l,_write,_read,_get_config,_set_config)    \
+	const devio_table_t _l = { \
+	_write, \
+	_read, \
+};
